@@ -1,12 +1,5 @@
 """
-Simple login mechanism implemented with Flask and Flask-Sqlalchemy
-Makes use of werkzeug.security for password hashing.
-
-1. Create new user with signup form.
-2. Authenticate user with Login form
-3. Send authorized user to home page
-
-https://techmonger.github.io/10/flask-simple-authentication/
+Looking in here too hard is cheating btw
 """
 from flask import Flask, render_template, request, url_for, redirect, flash, \
 session, abort
@@ -57,6 +50,9 @@ def signup():
 
 
     if request.method == "POST":
+        if request.headers.get('X-ISDEV') != "true":
+            return "You shouldn't be here..."
+        
         username = request.form['username']
         password = request.form['password']
 
