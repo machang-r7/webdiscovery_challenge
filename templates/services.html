@@ -1,0 +1,23 @@
+<!doctype html5>
+<html>
+<head>
+  <title>{{ username.title() }} - Home</title>
+</head>
+<body>
+  <h2>Hello {{username.title()}}</h2>
+  <p><a href="{{ url_for('logout', username=username) }}">Logout</a></p>
+   
+
+  <p>I was too lazy to figure out how to remove the spaces, sorry </p>
+  <p>Todo: Implement API to return json response</p>
+  <h2> Services: </h2> 
+    {% for index in range(services | length) %}
+    <tr>
+    {% for element in services[index] %}
+    <td>{{element}}</td>
+    {% endfor %}
+    </tr>
+    {% endfor %}
+
+</body>
+</html>
